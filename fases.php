@@ -15,6 +15,19 @@ $nombre = $_GET['proyecto'];
 
 $_SESSION['proyecto'] = $nombre;
 
+
+$conexion = mysql_connect('localhost','mauricio','mauricio');
+
+mysql_select_db("proyecto2", $conexion);
+
+$sql = " SELECT titulo FROM proyectos WHERE idProyecto = $nombre  " ;
+
+$final = mysql_query($sql);
+
+$titulo = mysql_fetch_array($final);
+
+$til = $titulo['titulo'];
+
 echo " 
     
 
@@ -22,7 +35,7 @@ echo "
 
 <tr>
 
-<tr><td> Fases del proyecto ".$nombre."  </td></tr>
+<tr><td> Fases del proyecto ".$til."  </td></tr>
 <tr><td>   </td>
 <tr><td> <a href='formulariotareas.php?fase=".$uno." &proyecto=".$nombre." '>Analisis De Requerimientos</a> </td>
 <tr><td> <a href='formulariotareas.php?fase=".$dos." &proyecto=".$nombre." '>Diseño</a> </td>

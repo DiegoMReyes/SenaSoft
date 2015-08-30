@@ -119,7 +119,7 @@ while($fila2 = mysql_fetch_array($peticion2)){
         $apejefe = $fila2['apellido'];
         $idJefe = $fila2['idUsuario']; 
             
-        echo " <option value='$nomjefe'>".$nomjefe." ".$apejefe."</option> ";
+        echo " <option value='$idJefe'>".$nomjefe." ".$apejefe."</option> ";
             
             
 }
