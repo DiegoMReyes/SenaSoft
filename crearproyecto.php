@@ -59,7 +59,7 @@ while($fila = mysql_fetch_array($peticion)){
     
     $nomape = $fila['jefe'];
 
-    echo $nomape ;
+    
     
     
     $sql2 = "SELECT * FROM usuario WHERE idUsuario=$nomape ";
@@ -69,7 +69,9 @@ while($fila = mysql_fetch_array($peticion)){
     $fila3 = mysql_fetch_array($peticion3);
     
     $fin = $fila3['nombre'] ;
+    $finap = $fila3['apellido'];
     
+   
     
      echo "<tr>
         
@@ -79,7 +81,7 @@ while($fila = mysql_fetch_array($peticion)){
           " <td> ".$fila['objetivo']."</td> ".
           " <td> ".$fila['fecha']."</td>  ".
           " <td> ".$fila['duracion']."</td>  ".
-          " <td> ".$fin.
+          " <td> ".$fin ." ".$finap  .
              
              
           " <td><a href='eliminarproyecto.php?idProyecto=".$fila['idProyecto']."
