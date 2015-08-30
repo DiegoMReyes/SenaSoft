@@ -24,8 +24,14 @@ mysql_query($sql);
 
 mysql_close();
 
+echo " 
+
+<html>
+    <head>
+    <meta http-equiv='REFRESH' content='0; url= formulariotareas.php?fase=".$fase." &proyecto=".$proyecto." ' > 
+    
+    </head>
+</html> ";
 
 
 ?>
-
-

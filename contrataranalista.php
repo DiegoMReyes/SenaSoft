@@ -31,11 +31,32 @@
 
                    
         Usuario: <input type='text' name='usuarioN' required/> <br>
-        Contraseña: <input type='password' name='contrasenaN' required /> <br>
+        Contraseña: <input type='password' name='contrasena' required /> <br>
         Confirmar Contraseña <input type='password' name='contrasenacon' required /> <br>
     
-        <input type='submit' name='cuenta' value='Crear Cuenta'  />
+        <input type='submit' name='cuenta1' value='Crear Cuenta'  />
+        
+        <?php
+        
+        
+            
+        if(!empty($_POST['contrasena'] ) && !empty($_POST['contrasenacon'] )){
+        
+        if($_POST['contrasena'] == $_POST['contrasenacon']){
+        
+        
+        echo " 
+         <input type='submit' name='cuenta' value='Crear Cuenta'  />
         
         </form>
-
+                ";
     
+        }
+        else{
+            echo "<h3>La contraseña no es la misma</h3>";
+            
+        }
+        
+        }
+        
+        ?>

@@ -1,4 +1,17 @@
 
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Administrador</title>
+    </head>
+    <body>
+
+
+
+
+
+
 <center>
 
 <h2>Administrador</h2>
@@ -50,6 +63,7 @@ echo " <table border = 1 width=100%>
        <td>Jefe De Proyecto</td>
        <td>Eliminar </td>
        <td>Ver Fases</td>
+       <td> Actualizar </td>
        </tr>
         ";
 
@@ -89,6 +103,7 @@ while($fila = mysql_fetch_array($peticion)){
             
           "<td><a href='fases.php?proyecto=".$fila['idProyecto']."' > Ver Fases</a></td>".
              
+          "<td><a href='ActualizarProyecto.php?proyecto=".$fila['idProyecto']."' >Actualizar</a></td>".
              
          " </tr> ";
     
@@ -164,3 +179,23 @@ echo "
 
 ?>
 
+</center>
+
+    <br><br>
+    
+<table border='1px'>
+    
+    <tr>
+        <td>MENU</td>   </tr><tr>
+        <td><a href='Usuarios.php'>Ver usuarios</a></td>
+    
+    
+    </tr>
+    
+    
+</table>
+
+
+
+ </body>
+</html>

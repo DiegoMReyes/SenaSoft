@@ -14,7 +14,7 @@ $_SESSION['contrasena'] = $contrasena1;
 $usuario = $_SESSION['usuario'] ;
 $contrasena = $_SESSION['contrasena'];
 
-echo $usuario;
+
 
 $conexion = mysql_connect("localhost", "mauricio", "mauricio");
 
@@ -84,5 +84,8 @@ function voyA($irA) {
 ";
     
 }
+
+echo 'No tienes un usuario o escribiste mal';
+
 
 ?>
