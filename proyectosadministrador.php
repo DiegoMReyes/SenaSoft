@@ -3,7 +3,11 @@
 
 <h2>Jefe Proyectos</h2>
 
+
+<p><a href="cerrarsesion.php?usuario='' &contrasena='' ">Cerrar sesion</a></p>
+
 <?php
+
 
 session_start();
 
@@ -12,24 +16,26 @@ $usuario = $_SESSION['usuario'];
 $contrasena = $_SESSION['contrasena'];
 
 
+if(!empty($_SESSION['usuario'] )){
+
+
 $conexion = mysql_connect("localhost", "mauricio", "mauricio");
 
 mysql_select_db("proyecto2", $conexion);
 
-$sql1 = "SELECT nombre FROM usuario WHERE usuario = '$usuario' AND contrasena = '$contrasena' ";
+$sql1 = "SELECT idUsuario FROM usuario WHERE usuario = '$usuario' AND contrasena = '$contrasena' ";
 
 $peticion1 = mysql_query($sql1);
 
 
 while($fila = mysql_fetch_array($peticion1)){
 
-        $nombre = $fila['nombre'];
+        $idUsuario = $fila['idUsuario'];
     
 }
 
-$sql = "SELECT * FROM proyectos WHERE jefe='$nombre' ";
+$sql = "SELECT * FROM proyectos WHERE jefe='$idUsuario' ";
 
-echo $nombre;
 
 $peticion = mysql_query($sql);
 
@@ -66,7 +72,7 @@ while($fila = mysql_fetch_array($peticion)){
          '>Asignar Tarea</a></td>".  
              
              
-           "<td><a href='fases.php?proyecto=".$fila['titulo']."' >
+           "<td><a href='fases.php?proyecto=".$fila['idProyecto']."' >
            Ver Fases <a/></td>  " .  
              
               
@@ -77,6 +83,8 @@ while($fila = mysql_fetch_array($peticion)){
 echo "</table>";
 
 mysql_close();
+
+}
 
 ?>
 

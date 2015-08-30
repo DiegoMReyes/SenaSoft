@@ -13,7 +13,7 @@ $conexion = mysql_connect("localhost", "mauricio", "mauricio");
 
 mysql_select_db("proyecto2", $conexion);
 
-$sql = "SELECT * FROM tareas WHERE fase='$fase' AND proyecto='$nombre'";
+$sql = "SELECT * FROM tareas WHERE proyecto =$nombre ";
 
 $peticion = mysql_query($sql);
 

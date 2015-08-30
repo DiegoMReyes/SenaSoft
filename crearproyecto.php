@@ -53,7 +53,24 @@ echo " <table border = 1 width=100%>
        </tr>
         ";
 
+
+
 while($fila = mysql_fetch_array($peticion)){
+    
+    $nomape = $fila['jefe'];
+
+    echo $nomape ;
+    
+    
+    $sql2 = "SELECT * FROM usuario WHERE idUsuario=$nomape ";
+
+    $peticion3 = mysql_query($sql2);
+    
+    $fila3 = mysql_fetch_array($peticion3);
+    
+    $fin = $fila3['nombre'] ;
+    
+    
      echo "<tr>
         
            
@@ -62,7 +79,7 @@ while($fila = mysql_fetch_array($peticion)){
           " <td> ".$fila['objetivo']."</td> ".
           " <td> ".$fila['fecha']."</td>  ".
           " <td> ".$fila['duracion']."</td>  ".
-          " <td> ".$fila['jefe'].
+          " <td> ".$fin.
              
              
           " <td><a href='eliminarproyecto.php?idProyecto=".$fila['idProyecto']."
@@ -85,18 +102,39 @@ echo "
         <td><input type='text' name='objetivo' </td>
         <td><input type='date' name='fecha' </td>
         <td><input type='text' name='duracion' </td>
-        <td><input type='text' name='jefe' </td>
+        <td><select name='jefe'>   ";
+   
+
+
+$sql2 = "SELECT * FROM usuario WHERE permisos = 5 ";
+
+$peticion2 = mysql_query($sql2);
+
+
+while($fila2 = mysql_fetch_array($peticion2)){
+      
+        $nomjefe = $fila2['nombre'];
+        $apejefe = $fila2['apellido'];
+        $idJefe = $fila2['idUsuario']; 
+            
+        echo " <option value='$nomjefe'>".$nomjefe." ".$apejefe."</option> ";
+            
+            
+}
+
+echo " 
+        </td>
         <td><input type='submit'</td>
         
         <td></td>
         
 </tr>
-";
-
-echo "</table>";
 
 
+    </table>";
 
+
+echo $nomjefe;
 
 mysql_close();
 
@@ -107,6 +145,7 @@ echo "
 
 <br><br><br>
 
+<h3>Contratar Nuevo Empleado</h3>
 <table border='1px'>
     
     <tr><td><a href='contrataranalista.php?permisos=".$jefe." '>Contratar Jefe</a></td></tr>
